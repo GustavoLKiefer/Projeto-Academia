@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Aluno {
 
-    // 1. Campos de aluno o
+    // Campos de aluno o
     private Integer id;
     private String nome;
     private String cpf;
@@ -31,7 +31,7 @@ public class Aluno {
         this.email = email;
     }
 
-    // Geters e Setters (clica luzinha)
+    // Geters e Setters
 
     public Integer getId() {
         return id;
