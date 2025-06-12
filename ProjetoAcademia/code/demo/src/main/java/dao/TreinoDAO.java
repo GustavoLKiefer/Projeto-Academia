@@ -37,7 +37,7 @@ public class TreinoDAO {
             stmt.setString(3, treino.getDescricao());
             stmt.setInt(4, treino.getDuracaoMinutos());
             stmt.setDate(5, treino.getDataInicio());
-            stmt.setInt(6, treino.getId());
+            stmt.setInt(6, treino.getIdTreino());
             stmt.executeUpdate();
         }
     }
@@ -64,20 +64,20 @@ public class TreinoDAO {
     }
 
     public List<Treino> listarTodos() throws SQLException {
-        List<Treino> treinos = new ArrayList<>();
+        List<Treino> treino = new ArrayList<>();
         String sql = "SELECT * FROM treino";
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                treinos.add(mapearTreino(rs));
+                treino.add(mapearTreino(rs));   
             }
         }
-        return treinos;
+        return treino;
     }
 
     private Treino mapearTreino(ResultSet rs) throws SQLException {
         Treino treino = new Treino();
-        treino.setId(rs.getInt("id"));
+        treino.setIdTreino(rs.getInt("id"));
         treino.setIdAluno(rs.getInt("aluno_id"));
         treino.setTipoTreino(rs.getString("tipo_treino"));
         treino.setDescricao(rs.getString("descricao"));
