@@ -33,20 +33,28 @@ O link leva direto para a versão de Windows então é importante garantir que e
 - Vá para o arquivo "banco_de_dados.sql" que existe no github
 - Copie todo o texto no arquivo
 - Abra o Wampserver
+- Verifique nos aplicativos em segundo plano se ele está verde
 - Abra o MySQL Workbench
 - Entre no servidor local
 - Copie o código e vá executando cada parte dele (cada bolinha azul indicada no programa é um comando diferente. Para executar use CTRL + Enter enquanto uma parte é selecionada)
-- Abra o arquivo **.java** localizado em ProjetoAcademia/code/demo/src/main/java/util/
-- Verifique na linha 17 se a senha condiz com a sua utilizada no servidor local (deixe vazia para nenhuma senha)
-- Por final, execute o arquivo Main.java localizado em ProjetoAcademia/code/demo/src/main/java/aplicacao/
-- Se tudo ocorrer como previsto, o código irá rodar
+- Agora execute o arquivo Main.java localizado em ProjetoAcademia/code/demo/src/main/java/aplicacao/
+- Se tudo ocorrer como previsto o código irá rodar
 
 ## Dentro do CLI
 
+- Insira sua senha quando for pedido, o programa irá te informar se algum erro ocorrer
 - Usando os números do teclado você irá se locomover pelos menus
-- O tratamento de erros é feito com switch case e try/catch então aguarde informações de possíveis erros envolvendo o driver
 - As dependências do código estão listadas no arquivo pom.xml
 
+## Erros comuns e tratamentos
+
+- Código de erro 1045 -> Confirme se inseriu sua senha corretamente
+- Código de erro 1049 -> Verifique se criou o banco de dados corretamente, as vezes pode ter esquecido de rodar alguma parte no MySQL Workbench
+- Código de erro 1146 -> Verifique se criou a tabela igual no arquivo .sql
+- Código de erro 1366 -> Valor incorreto para a coluna (errou o tipo de dado)
+- Código de erro 2003 -> Confirme se o código .java na pasta util está com a porta correta
+
+Fonte: https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html
 ---
 
 # 🔹Geral
