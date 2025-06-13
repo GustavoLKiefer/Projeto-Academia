@@ -10,7 +10,7 @@ O sistema segue uma abordagem modular, com separação clara entre interface, re
 
 
 
-## Requisitos para funcionamento
+## Requisitos para funcionamento (em Windows)
 
 Por ser um programa simples é necessário fazer mínimas alterações no código e baixar alguns aplicativos. Tudo será explicado em baixo
 
@@ -27,6 +27,8 @@ O link leva direto para a versão de Windows então é importante garantir que e
 
 
 - Para caso de falta de Visual C++ da Microsoft, os downloads estão aqui: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+
+Verifique quais faltam e baixe eles 
 
 ## Passo a passo para funcionar
 
