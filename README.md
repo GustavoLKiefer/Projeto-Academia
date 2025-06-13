@@ -54,7 +54,6 @@ O link leva direto para a versão de Windows então é importante garantir que e
 - Código de erro 1366 -> Valor incorreto para a coluna (errou o tipo de dado)
 - Código de erro 2003 -> Confirme se o código .java na pasta util está com a porta correta
 
-Fonte: https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html
 ---
 
 # 🔹Geral
@@ -126,3 +125,5 @@ Para Treinos:
 - Manuseio de IDEs e bancos de dados.
 
 ---
+
+ - Fonte dos erros: https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html
