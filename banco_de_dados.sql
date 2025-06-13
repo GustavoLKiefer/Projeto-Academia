@@ -13,7 +13,7 @@ telefone varchar(15),
 email varchar(100)
 ) character set=utf8mb4;
 
-create table treinos(
+create table treino(
 idtreino int not null auto_increment unique primary key,
 aluno_id int not null,
 tipo_treino varchar(50),
