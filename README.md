@@ -27,6 +27,8 @@ O link leva direto para a versão de Windows então é importante garantir que e
 
 Para rodar o código será necessário ter uma IDE. Ao lado está uma recomendação para ser utilizada, pode usar a que preferir: https://www.eclipse.org/downloads/packages/
 
+(baixe a versão Eclipse IDE for Java Developers mais recente)
+
 - Para caso de falta de Visual C++ da Microsoft, os downloads estão aqui: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
 
 Verifique quais faltam e baixe eles 
