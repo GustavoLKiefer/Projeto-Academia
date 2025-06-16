@@ -352,7 +352,7 @@ public static void atualizarTreino(Connection connection) {
     treino.setIdTreino(scanner.nextInt());
     scanner.nextLine();
 
-    System.out.print(" Novo ID do aluno: ");
+    System.out.print(" ID do aluno que vai receber o treino: ");
     treino.setIdAluno(scanner.nextInt());
     scanner.nextLine();
 
