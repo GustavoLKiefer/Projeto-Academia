@@ -30,7 +30,7 @@ public class TreinoDAO {
     }
 
     public void atualizar(Treino treino) throws SQLException {
-        String sql = "UPDATE treino SET aluno_id=?, tipo_treino=?, descricao=?, duracao_minutos=?, data_inicio=? WHERE id=?";
+        String sql = "UPDATE treino SET aluno_id=?, tipo_treino=?, descricao=?, duracao_minutos=?, data_inicio=? WHERE idtreino=?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, treino.getIdAluno());
             stmt.setString(2, treino.getTipoTreino());
