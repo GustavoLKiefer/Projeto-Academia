@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import util.CpfUtils;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import model.Aluno;
 
@@ -28,16 +31,23 @@ public class AlunoDAO {
     }
 
     public void cadastrar(Connection conn, Aluno aluno) throws SQLException {
+        String cpf = aluno.getCpf();
+        if (!CpfUtils.validarCpf(cpf)) {
+            throw new SQLException("CPF inválido: " + cpf);
+        }
+        String cpfFormatado = CpfUtils.formatarCpf(cpf);
+
         String sql = "INSERT INTO alunos (nome, cpf, data_nascimento, telefone, email) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, aluno.getNome());
-            stmt.setString(2, aluno.getCpf());
+            stmt.setString(2, cpfFormatado);
             stmt.setDate(3, new java.sql.Date(aluno.getDataNascimento().getTime()));
             stmt.setString(4, aluno.getTelefone());
             stmt.setString(5, aluno.getEmail());
             stmt.executeUpdate();
         }
     }
+
 
     public String getNome() {
         return nome;
@@ -93,14 +103,14 @@ public class AlunoDAO {
     }
 
     public void atualizarAluno(Connection conn, Aluno aluno) throws SQLException{
-        String sql = "UPDATE alunos SET nome = ?, cpf = ?, data_nascimento = ?, telefone = ?, email = ? WHERE id = ?";
+
+        String sql = "UPDATE alunos SET nome = ?, data_nascimento = ?, telefone = ?, email = ? WHERE id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setString(1, aluno.getNome());
-            stmt.setString(2, aluno.getCpf());
-            stmt.setDate(3, new java.sql.Date(aluno.getDataNascimento().getTime()));
-            stmt.setString(4, aluno.getTelefone());
-            stmt.setString(5, aluno.getEmail());
-            stmt.setInt(6, aluno.getId());
+            stmt.setDate(2, new java.sql.Date(aluno.getDataNascimento().getTime()));
+            stmt.setString(3, aluno.getTelefone());
+            stmt.setString(4, aluno.getEmail());
+            stmt.setInt(5, aluno.getId());
             stmt.executeUpdate();
         }
     }
@@ -116,18 +126,24 @@ public class AlunoDAO {
     public Aluno buscarPorId(Connection conn, int id) throws SQLException{
             String sql = "SELECT * FROM alunos WHERE id = ?";
             try(PreparedStatement stmt = conn.prepareStatement(sql)){
+                stmt.setInt(1, id);
                 try(ResultSet rs = stmt.executeQuery()){
                     if(rs.next()){
                         Aluno aluno = new Aluno();
-                        aluno.setId(rs.getInt("Id -> "));
-                        aluno.setNome(rs.getString("Nome -> "));
-                        aluno.setCpf(rs.getString("CPF -> "));
-                        java.sql.Date dataSql = rs.getDate("Data de nascimento -> ");
-                        if (dataSql != null){
-                            aluno.setDataNascimento(new java.util.Date(dataSql.getTime()));
+                        aluno.setId(rs.getInt("id"));
+                        aluno.setNome(rs.getString("nome"));
+                        aluno.setCpf(rs.getString("cpf"));
+                        java.sql.Date dataSql = rs.getDate("data_nascimento");
+                        System.out.println("Data SQL: " + dataSql);
+                        if (dataSql != null) {
+                            LocalDate dataNascimento = dataSql.toLocalDate();
+                            String dataNascimentoFormatada = dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                            aluno.setDataNascimentoFormatada(dataNascimentoFormatada);
+                        } else {
+                            aluno.setDataNascimentoFormatada("");
                         }
-                        aluno.setTelefone(rs.getString("Telefone -> "));
-                        aluno.setEmail(rs.getString("Email -> "));
+                        aluno.setTelefone(rs.getString("telefone"));
+                        aluno.setEmail(rs.getString("email"));
                         return aluno;
                     }
                 }
