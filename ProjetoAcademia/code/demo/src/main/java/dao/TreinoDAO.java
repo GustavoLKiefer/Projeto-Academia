@@ -42,18 +42,18 @@ public class TreinoDAO {
         }
     }
 
-    public void deletar(int id) throws SQLException {
-        String sql = "DELETE FROM treino WHERE id=?";
+    public void deletar(int idtreino) throws SQLException {
+        String sql = "DELETE FROM treino WHERE idtreino=?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id);
+            stmt.setInt(1, idtreino);
             stmt.executeUpdate();
         }
     }
 
-    public Treino buscarPorId(int id) throws SQLException {
+    public Treino buscarPorId(int idtreino) throws SQLException {
         String sql = "SELECT * FROM treino WHERE id=?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id);
+            stmt.setInt(1, idtreino);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return mapearTreino(rs);
