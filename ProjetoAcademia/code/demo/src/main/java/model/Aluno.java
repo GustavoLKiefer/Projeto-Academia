@@ -3,13 +3,13 @@ import java.util.Date;
 
 public class Aluno {
 
-    // 1. Campos de aluno
     private Integer id;
     private String nome;
     private String cpf;
     private Date dataNascimento;
     private String telefone;
     private String email;
+    private String dataNascimentoFormatada;
 
     // Usando Integer ao invés de int para caso de valores nulos e para listar os objetos (segundo a internet só assim funciona)
 
@@ -22,7 +22,6 @@ public class Aluno {
         this.email = email;
     }
 
-    //Construtor
 
     public Aluno(Integer id, String nome, String cpf, Date dataNascimento, String telefone, String email) {
         this.id = id;
@@ -33,7 +32,6 @@ public class Aluno {
         this.email = email;
     }
 
-    // Geters e Setters
 
     public Integer getId() {
         return id;
@@ -63,8 +61,8 @@ public class Aluno {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDataNascimento(Date dataFormatada) {
+        this.dataNascimento = dataFormatada;
     }
 
     public String getTelefone() {
@@ -83,15 +81,24 @@ public class Aluno {
         this.email = email;
     }
 
+    public String getDataNascimentoFormatada() {
+        return dataNascimentoFormatada;
+    }
+
+    public void setDataNascimentoFormatada(String dataNascimentoFormatada) {
+        this.dataNascimentoFormatada = dataNascimentoFormatada;
+    }
+
     @Override
     public String toString() {
         return "| Aluno \n" +
                "| ID: " + id + "\n" +
                "| Nome: " + nome + "\n" +
                "| CPF: " + cpf + "\n" +
-               "| Data de nascimento: " + dataNascimento + "\n" +
+               "| Data de nascimento: " + dataNascimentoFormatada + "\n" +
                "| Telefone: " + telefone + "\n" +
                "| Email: " + email + "\n" +
                "|-----------------------------";
     }
+
 }
