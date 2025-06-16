@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class AlunoDAO {
         return email;
     }
     
-    public List<Aluno> listar(Connection conn) throws SQLException {
+    public String listar(Connection conn) throws SQLException {
         List<Aluno> alunos = new ArrayList<>();
         String sql = "SELECT * FROM alunos";
         try (Statement stmt = conn.createStatement();
@@ -68,17 +69,27 @@ public class AlunoDAO {
                 aluno.setId(rs.getInt("id"));
                 aluno.setNome(rs.getString("nome"));
                 aluno.setCpf(rs.getString("cpf"));
-                // Conversão de java.sql.Date para java.util.Date
-                java.sql.Date dataSql = rs.getDate("data_nascimento");
-                if (dataSql != null) {
-                    aluno.setDataNascimento(new java.util.Date(dataSql.getTime()));
-                }
+                aluno.setDataNascimento(new java.util.Date(rs.getDate("data_nascimento").getTime()));
                 aluno.setTelefone(rs.getString("telefone"));
                 aluno.setEmail(rs.getString("email"));
                 alunos.add(aluno);
             }
         }
-        return alunos;
+
+        StringBuilder sb = new StringBuilder();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        for (Aluno aluno : alunos){
+            sb.append("|Aluno\n");
+            sb.append("|ID: ").append(aluno.getId()).append("\n");
+            sb.append("|Nome: ").append(aluno.getNome()).append("\n");
+            sb.append("|CPF: ").append(aluno.getCpf()).append("\n");
+            sb.append("|Data de Nascimento: ")
+            .append(aluno.getDataNascimento() != null ? sdf.format(aluno.getDataNascimento()) : "N/A").append("\n");
+            sb.append("|Telefone: ").append(aluno.getTelefone()).append("\n");
+            sb.append("|Email: ").append(aluno.getEmail()).append("\n");
+            sb.append("-----------------------------\n");
+        }
+        return sb.toString(); // Nesse ponto eu nem sei mais se isso é necessário
     }
 
     public void atualizarAluno(Connection conn, Aluno aluno) throws SQLException{
