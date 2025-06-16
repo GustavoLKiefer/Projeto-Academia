@@ -55,6 +55,7 @@ Verifique quais faltam e baixe eles
 - Código de erro 1146 -> Verifique se criou a tabela igual no arquivo .sql
 - Código de erro 1366 -> Valor incorreto para a coluna (errou o tipo de dado)
 - Código de erro 2003 -> Confirme se o código .java na pasta util está com a porta correta
+- CPF Inválido: A conta do CPF não funcionou, isso se deve ao CPF ser inválido com os parâmetros definidos para números verificadores pelo Governo Federal
 
 ---
 
