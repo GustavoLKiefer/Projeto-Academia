@@ -51,7 +51,7 @@ public class TreinoDAO {
     }
 
     public Treino buscarPorId(int idtreino) throws SQLException {
-        String sql = "SELECT * FROM treino WHERE id=?";
+        String sql = "SELECT * FROM treino WHERE idtreino=?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, idtreino);
             try (ResultSet rs = stmt.executeQuery()) {
