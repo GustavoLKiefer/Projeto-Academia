@@ -8,7 +8,7 @@ O sistema segue uma abordagem modular, com separação clara entre interface, re
 
 # 🌐 Como utilizar
 
-
+**Para garantir a funcionalidade, certifique-se de ter o JDK e o Java instalados
 
 ## Requisitos para funcionamento (em Windows)
 
@@ -31,6 +31,18 @@ Para rodar o código será necessário ter uma IDE. Ao lado está uma recomenda�
 - Para caso de falta de Visual C++ da Microsoft, os downloads estão aqui: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
 
 Verifique quais faltam e baixe eles 
+
+### Possível erro com o Wampserver
+
+Para o caso do Wampserver permanecer **amarelo(ou laranja)** ao invés de verde você precisará executar um passo a passo antes de continuar
+
+- Clique com o botão direito no Wampserver quando ele estiver em segundo plano
+- Vá para a seção "Tools"
+- Dentro da parte "Port used by MySQL" clique em "Use a port other than 3306"
+- Mude a porta para 3308
+- Abra o arquivo Conexao.java em Projeto-Academia\ProjetoAcademia\code\demo\src\main\java\util
+- Na linha 25, logo após localhost mude o valor "3306" coloque "3308"
+- Se ocorrer como planejado deverá estar funcionando agora
 
 ## Passo a passo para funcionar
 
