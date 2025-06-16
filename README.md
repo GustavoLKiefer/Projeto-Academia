@@ -26,7 +26,6 @@ Usado para criar o banco de dados
 O link leva direto para a versão de Windows então é importante garantir que esse seja seu OS, se não for o caso, troque para o OS utilizado
 
 Para rodar o código será necessário ter uma IDE. Ao lado está uma recomendação para ser utilizada, pode usar a que preferir: https://www.eclipse.org/downloads/packages/
-
 (baixe a versão Eclipse IDE for Java Developers mais recente)
 
 - Para caso de falta de Visual C++ da Microsoft, os downloads estão aqui: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
