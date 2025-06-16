@@ -93,7 +93,7 @@ public class Main {
             choose = scanner.nextInt();
             scanner.nextLine();
 
-            // Ao que aparenta terminado essa parte . Vou checar de novo quarta feira
+            // Ao que aparenta terminado essa parte. Vou checar de novo quarta feira
             switch (choose) {
                 case 1: // Cadastro
                     cadastrarAluno(connection);
@@ -108,7 +108,7 @@ public class Main {
                     excluirAluno(connection); // Gustavo: Puxa pro método de excluir alunos que é implementado junto da DAO
                     break;
                 case 5: // Buscar
-                    buscarAluno(connection); // Eu (Gustavo) não tenho ideia de como isso funciona. Se alguém souber me explica
+                    buscarAluno(connection);
                     break; // Pra facilitar na funcionalidade eu decidi separar em duas partes. Provavelmente tem como simplificar
                 case 6: // Voltar pro menu principal
                     System.out.println(">> Voltando ao menu principal...");
@@ -185,9 +185,8 @@ public class Main {
         if (alunos.isEmpty()) {
             System.out.println(">> Nenhum aluno cadastrado.");
         } else {
-            for (Aluno aluno : alunos) {
-                System.out.println(aluno);
-            }
+            String saida = alunoDAO.listar(connection);
+            System.out.println(saida);
         }
     } catch (SQLException e) {
         System.err.println(">> Erro ao listar alunos: " + e.getMessage());
@@ -326,7 +325,7 @@ public static void excluirAluno(Connection connection) {
         System.err.println(">> Erro ao excluir treino: " + e.getMessage());
     }
 }
-//listar treino (feito por Handrey)
+//listar treino (feito por Handrey) (o Handrey errou tudo e eu notei isso hoje, tive que fazer a correção mais rápida da vida)
     public static void listarTreino(Connection connection) {
     TreinoDAO treinoDAO = new TreinoDAO(connection);
     try {
@@ -341,9 +340,11 @@ public static void excluirAluno(Connection connection) {
     } catch (SQLException e) {
         System.err.println(">> Erro ao listar treino: " + e.getMessage());
     }
+    // Tive que usar IA nessa função, não tenho ideia do que estava errado
 }
-//fim listar treino (feito por Handrey) opção 2
+//fim listar treino (feito por Handrey (e corrigido por Gustavo)) opção 2
 //te odeio gustavo
+// Também te odeio Handrey
 //atualizar infos cadastrais (feito por Handrey) opção 3
 public static void atualizarTreino(Connection connection) {
     Treino treino = new Treino();
