@@ -51,11 +51,11 @@ public class Treino {
     public String toString() {
         return "| Treino: \n" +
                "| ID: " + idTreino + "\n" +
-               "|  AlunoID=" + aluno_id + "\n" +
-               "| Tipo='" + tipo_treino + "\n" +
-               "| Descrição='" + descricao + "\n" +
-               "| Duração=" + duracao_minutos + " minutos\n" +
-               "| Início=" + data_inicio + "\n" +
+               "| ID do aluno: " + aluno_id + "\n" +
+               "| Tipo do treino: " + tipo_treino + "\n" +
+               "| Descrição do treino: " + descricao + "\n" +
+               "| Duração: " + duracao_minutos + " minutos\n" +
+               "| Data de início: " + data_inicio + "\n" +
                "|-----------------------------";
     } // Agora a listagem deve funcionar da forma certa, eu não entendi o que estava errado e precisei usar IA pra corrigir isso
 }
