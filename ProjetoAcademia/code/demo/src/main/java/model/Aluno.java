@@ -85,13 +85,13 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno{" +
-               "id=" + id +
-               ", nome='" + nome + '\'' +
-               ", cpf='" + cpf + '\'' +
-               ", dataNascimento=" + dataNascimento +
-               ", telefone='" + telefone + '\'' +
-               ", email='" + email + '\'' +
-               '}';
+        return "| Aluno \n" +
+               "| ID: " + id + "\n" +
+               "| Nome: " + nome + "\n" +
+               "| CPF: " + cpf + "\n" +
+               "| Data de nascimento: " + dataNascimento + "\n" +
+               "| Telefone: " + telefone + "\n" +
+               "| Email: " + email + "\n" +
+               "|-----------------------------";
     }
 }
