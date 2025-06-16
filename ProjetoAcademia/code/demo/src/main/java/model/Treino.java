@@ -3,7 +3,7 @@ package model;
 import java.sql.Date;
 
 public class Treino {
-    private int id;
+    private int idTreino;
     private int aluno_id;
     private String tipo_treino;
     private String descricao;
@@ -11,10 +11,10 @@ public class Treino {
     private Date data_inicio;
 
     public int getIdTreino() {
-        return id;
+        return idTreino;
     }
-    public void setIdTreino(int id) {
-        this.id = id;
+    public void setIdTreino(int idTreino) {
+        this.idTreino = idTreino;
     }
     public int getIdAluno() {
         return aluno_id;
@@ -46,4 +46,16 @@ public class Treino {
     public void setDataInicio(Date dataInicio) {
         this.data_inicio = dataInicio;
     }
+
+    @Override
+    public String toString() {
+        return "| Treino: \n" +
+               "| ID: " + idTreino + "\n" +
+               "|  AlunoID=" + aluno_id + "\n" +
+               "| Tipo='" + tipo_treino + "\n" +
+               "| Descrição='" + descricao + "\n" +
+               "| Duração=" + duracao_minutos + " minutos\n" +
+               "| Início=" + data_inicio + "\n" +
+               "|-----------------------------";
+    } // Agora a listagem deve funcionar da forma certa, eu não entendi o que estava errado e precisei usar IA pra corrigir isso
 }
