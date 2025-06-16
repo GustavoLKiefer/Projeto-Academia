@@ -44,6 +44,8 @@ Verifique quais faltam e baixe eles
 
 ## Dentro do CLI
 
+**Para começar vale destacar que se você acabou de instalar tudo isso pela primeira vez você não terá uma senha, portanto poderá deixar vazio**
+
 - Insira sua senha quando for pedido, o programa irá te informar se algum erro ocorrer
 - Usando os números do teclado você irá se locomover pelos menus
 - As dependências do código estão listadas no arquivo pom.xml
