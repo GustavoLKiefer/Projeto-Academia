@@ -75,9 +75,9 @@ public class TreinoDAO {
         return treino;
     }
 
-    private Treino mapearTreino(ResultSet rs) throws SQLException {
+    public Treino mapearTreino(ResultSet rs) throws SQLException {
         Treino treino = new Treino();
-        treino.setIdTreino(rs.getInt("id"));
+        treino.setIdTreino(rs.getInt("idtreino"));
         treino.setIdAluno(rs.getInt("aluno_id"));
         treino.setTipoTreino(rs.getString("tipo_treino"));
         treino.setDescricao(rs.getString("descricao"));
