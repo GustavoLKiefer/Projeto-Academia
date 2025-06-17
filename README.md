@@ -8,7 +8,7 @@ O sistema segue uma abordagem modular, com separação clara entre interface, re
 
 # 🌐 Como utilizar
 
-**Para garantir a funcionalidade, certifique-se de ter o JDK e o Java instalados
+**Para garantir a funcionalidade, certifique-se de ter o JDK e o Java instalados**
 
 ## Requisitos para funcionamento (em Windows)
 
